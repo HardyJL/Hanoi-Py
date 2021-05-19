@@ -1,4 +1,5 @@
 import os
+import time
 
 class Disk:
     size: int = 0
@@ -47,8 +48,11 @@ while True:
         target = Tower("3")
 
         populate(amount, source)
+        start_time = time.time()
         hanoi(amount, source, helper, target)
+        print("--- %s seconds ---" % round(time.time() - start_time, 2))
         print (source, helper, target)
+        print(f"Done in: ({str(pow(2,amount) -1)}) moves.")
 
     
     input("Press 'Enter' to continue")
